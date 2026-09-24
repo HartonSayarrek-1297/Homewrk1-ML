@@ -55,4 +55,10 @@ def sep_filter(img): # ручной рабоче-крестьянский фил
     
 img_remake = sep_filter(img_rgb)
 
-show_images([img_rgb, img_remake], ["Жалкий оригинал", "Неповторимая пародия"], 2)
+sepia_matrix = np.array([[0.393, 0.769, 0.189],
+                         [0.349, 0.686, 0.168],
+                         [0.272, 0.534, 0.131]], dtype=np.float32)
+
+img_lib = cv2.transform(img_rgb, sepia_matrix)
+
+show_images([img_rgb, img_remake, img_lib], ["Жалкий оригинал", "Неповторимая пародия", "Пица из библиотеки"], 3)
